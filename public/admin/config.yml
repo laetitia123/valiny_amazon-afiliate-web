@@ -1,0 +1,94 @@
+# ---- 1. Where changes are saved -------------------------------------------
+backend:
+  name: github
+  repo: YOUR-GITHUB-USERNAME/YOUR-REPO-NAME   # <-- change this
+  branch: main
+
+# Lets you test the admin on your own computer (see README). Ignored on the live site.
+local_backend: true
+
+# ---- 2. Where uploaded images go ------------------------------------------
+media_folder: public/images/uploads   # folder in the repo
+public_folder: /images/uploads        # URL the website uses
+
+# ---- 3. What you can edit -------------------------------------------------
+collections:
+  - name: products
+    label: Products
+    label_singular: Product
+    folder: content/products
+    create: true
+    extension: json
+    format: json
+    slug: "{{slug}}"
+    identifier_field: name
+    summary: "{{name}} ({{category}})"
+    sortable_fields: ["name", "category", "order"]
+    fields:
+      - { label: Product name, name: name, widget: string }
+      - label: Amazon ASIN
+        name: asin
+        widget: string
+        hint: "The 10-character code in the Amazon URL after /dp/ (example: B08N5WRWNW)."
+        pattern: ["^[A-Z0-9]{10}$", "The ASIN is exactly 10 capital letters or numbers."]
+      - label: Category
+        name: category
+        widget: string
+        hint: "Products with the same category are grouped under one filter button. Example: Kettles"
+      - label: Short description
+        name: blurb
+        widget: text
+        hint: "One or two honest sentences on why you recommend it."
+      - label: Key points
+        name: pros
+        widget: list
+        required: false
+        max: 4
+        field: { label: Point, name: point, widget: string }
+      - label: Photo
+        name: image
+        widget: image
+        required: false
+        hint: "Use your own photo or an image from Amazon SiteStripe. Leave empty to show a letter tile."
+      - label: Top pick
+        name: pick
+        widget: boolean
+        default: false
+        hint: "Highlights this product with a marker."
+      - label: Position
+        name: order
+        widget: number
+        value_type: int
+        min: 1
+        default: 100
+        hint: "Lower numbers appear first (10, 20, 30...)."
+
+  - name: settings
+    label: Site settings
+    files:
+      - label: Site settings
+        name: site
+        file: content/site.json
+        fields:
+          - { label: Site name, name: name, widget: string }
+          - { label: Tagline, name: tagline, widget: string }
+          - { label: Intro text, name: intro, widget: text }
+          - label: Amazon Associates tag
+            name: associateTag
+            widget: string
+            hint: "Your Store ID from Associates Central, such as yourname-20."
+          - label: Amazon store
+            name: amazonDomain
+            widget: select
+            options:
+              - www.amazon.com
+              - www.amazon.co.uk
+              - www.amazon.ca
+              - www.amazon.de
+              - www.amazon.fr
+              - www.amazon.it
+              - www.amazon.es
+              - www.amazon.in
+              - www.amazon.com.au
+              - www.amazon.co.jp
+          - { label: Contact email, name: contactEmail, widget: string, required: false }

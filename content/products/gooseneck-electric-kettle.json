@@ -1,0 +1,14 @@
+{
+  "name": "Gooseneck electric kettle",
+  "asin": "B0XXXXXXX1",
+  "category": "Kettles",
+  "pick": true,
+  "order": 10,
+  "blurb": "A narrow spout lets you pour slowly and evenly, which is the whole trick of pour-over.",
+  "pros": [
+    "Temperature control",
+    "Keeps water hot",
+    "Easy to pour"
+  ],
+  "image": ""
+}

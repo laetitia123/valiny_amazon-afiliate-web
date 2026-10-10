@@ -1,0 +1,14 @@
+{
+  "name": "Hand coffee grinder",
+  "asin": "B0XXXXXXX2",
+  "category": "Grinders",
+  "pick": true,
+  "order": 20,
+  "blurb": "Fresh, even grounds make a bigger difference than any other upgrade.",
+  "pros": [
+    "Burr grinding",
+    "Quiet",
+    "Travels well"
+  ],
+  "image": ""
+}

@@ -206,7 +206,7 @@ main.wrap { padding-top: 2rem; }
 .footer { padding-top: 2rem; padding-bottom: 2rem; font-size: .875rem; }
 .footer p { margin: 0 0 .6rem; }
 .footer a { color: #fff; }
-.footer .copy { color: #999; margin-top: 1rem; }
+.footer .copy { color: #999; margin-top: 1rem; text-align: center; }
 
 /* ---- Mobile ---- */
 @media (max-width: 52rem) {

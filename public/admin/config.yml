@@ -1,7 +1,7 @@
 # ---- 1. Where changes are saved -------------------------------------------
 backend:
   name: github
-  repo: YOUR-GITHUB-USERNAME/YOUR-REPO-NAME   # <-- change this
+  repo: laetitia123/valiny_amazon-afiliate-web
   branch: main
 
 # Lets you test the admin on your own computer (see README). Ignored on the live site.

@@ -31,6 +31,11 @@ collections:
         widget: string
         hint: "The 10-character code in the Amazon URL after /dp/ (example: B08N5WRWNW)."
         pattern: ["^[A-Z0-9]{10}$", "The ASIN is exactly 10 capital letters or numbers."]
+      - label: Amazon Affiliate URL
+        name: affiliateUrl
+        widget: string
+        required: false
+        hint: "Paste your full Amazon Associates affiliate link generated using SiteStripe."
       - label: Category
         name: category
         widget: string

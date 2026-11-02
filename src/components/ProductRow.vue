@@ -1,3 +1,4 @@
+
 <script setup>
 import { computed } from "vue";
 
@@ -8,18 +9,27 @@ const props = defineProps({
   amazonDomain: { type: String, required: true },
 });
 
-const url = computed(
-  () =>
-    `https://${props.amazonDomain}/dp/${encodeURIComponent(
-      props.product.asin
-    )}/?tag=${encodeURIComponent(props.associateTag)}`
-);
+// Use the manually saved affiliate URL if available.
+// Otherwise, generate the link automatically.
+const url = computed(() => {
+  const affiliateUrl = props.product.affiliateUrl?.trim();
+
+  if (affiliateUrl) {
+    return affiliateUrl;
+  }
+
+  return `https://${props.amazonDomain}/dp/${encodeURIComponent(
+    props.product.asin
+  )}/?tag=${encodeURIComponent(props.associateTag)}`;
+});
+
 const meta = computed(() =>
   props.product.pick
     ? `Editor's pick · ${props.product.category}`
     : props.product.category
 );
 </script>
+
 
 <template>
   <li class="product" :class="{ 'is-pick': product.pick }">
